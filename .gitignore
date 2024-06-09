@@ -2,3 +2,6 @@
 .idea
 .venv
 .git
+/annotated/*.pt
+/quickstart/model.pth
+/quickstart/data/

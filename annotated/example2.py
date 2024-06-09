@@ -2,29 +2,24 @@ import torchtext; torchtext.disable_torchtext_deprecation_warning()
 # Load spacy tokenizer models, download them if they haven't been
 # downloaded already
 from GPUtil import GPUtil
-from mpmath import mp
-from torch.nn.functional import log_softmax, pad
-from setuptools import dist
+from torch.nn.functional import pad
 from torch.optim.lr_scheduler import LambdaLR
 from torch.utils.data import DistributedSampler, DataLoader
 from torchtext.data import to_map_style_dataset
 
-from training import LabelSmoothing, rate, TrainState, run_epoch, Batch
+from annotated.training import LabelSmoothing, rate, TrainState, run_epoch, Batch
 
-from util import SimpleLossCompute
+from annotated.util import SimpleLossCompute
 import torchtext;torchtext.disable_torchtext_deprecation_warning()
 
 import os
 from os.path import exists
-import portalocker
 import spacy
 import torch
 from torchtext import datasets
-import torchdata
 from torchtext.vocab import build_vocab_from_iterator
 
-from transformer import show_example, make_model, DummyOptimizer, DummyScheduler
-from torch.nn.parallel import DistributedDataParallel as DDP
+from annotated.transformer import show_example, make_model, DummyOptimizer, DummyScheduler
 
 
 def load_tokenizers():

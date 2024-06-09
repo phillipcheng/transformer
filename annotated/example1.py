@@ -2,9 +2,9 @@ import torchtext; torchtext.disable_torchtext_deprecation_warning()
 import torch
 from torch.optim.lr_scheduler import LambdaLR
 
-from training import Batch, LabelSmoothing, rate, run_epoch
-from transformer import make_model, DummyOptimizer, DummyScheduler, execute_example
-from util import subsequent_mask, SimpleLossCompute
+from annotated.training import Batch, LabelSmoothing, rate, run_epoch
+from annotated.transformer import make_model, DummyOptimizer, DummyScheduler, execute_example
+from annotated.util import subsequent_mask, SimpleLossCompute
 
 
 def data_gen(V, batch_size, nbatches):
